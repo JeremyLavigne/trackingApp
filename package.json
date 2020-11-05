@@ -1,0 +1,30 @@
+{
+  "name": "tracking-app",
+  "version": "1.0.0",
+  "description": "SDA8 Project in Front-end module with React",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeremyLavigne/trackingApp.git"
+  },
+  "keywords": [
+    "snowpack",
+    "react",
+    "sda8"
+  ],
+  "author": "Jeremy Lavigne",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-dotenv": "^2.0.4",
+    "@snowpack/plugin-react-refresh": "^2.3.5",
+    "snowpack": "2.16.1"
+  }
+}
