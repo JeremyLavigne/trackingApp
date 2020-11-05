@@ -1,0 +1,31 @@
+.button {
+    outline: none;
+    padding: 5px;
+    color: white;
+    margin: 5px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.start {
+    background-color: #3C91DF;
+    font-size: x-large;
+    padding: 10px 20px;
+    border-radius: 25%;
+}
+
+.back {
+    background-color: red;
+    border: 1px double black;
+}
+
+.more {
+    background-color: black;
+    width: 30px;
+    height: 30px;
+}
+
+.filter {
+    background-color: #3C91DF;
+    border: 2px solid #3C59DF;
+}
