@@ -1,8 +1,9 @@
 .title {
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: 400;
+    text-align: center;
 }
 
 .welcome {
-    text-decoration: underline;
+    color: white;
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './App.css'
 
 // Components
 import Button from '../atoms/Button';
@@ -7,48 +8,51 @@ import Status from '../atoms/Status';
 import Title from '../atoms/Title';
 import Input from '../atoms/Input';
 
-import Filter from '../molecules/Filter'
+import Filter from '../molecules/Filter';
+import OrderLine from '../molecules/OrderLine';
 
-// Images
-import franceFlag from '../../images/france-flag.png';
-import spainFlag from '../../images/spain-flag.png';
-import swedenFlag from '../../images/sweden-flag.png';
-import ukFlag from '../../images/uk-flag.png';
+import Header from '../organisms/Header';
 
 
 const App = () => {
+
+    const [ homePage, setHomePage ] = useState(true);
+
+
     return (
-        <div>
-            <h1>Let's just test our atoms components for now</h1>
-            <h2>Buttons</h2>
-            <Button content="Start" type="start" onClick={() => {console.log('start')}} />
-            <Button content="<< Back" type="back" onClick={() => {console.log('back')}} />
-            <Button content="+" type="more" onClick={() => {console.log('more')}} />
-            <Button content="Use Filter" type="filter" onClick={() => {console.log('filter')}} />
+        <main className={homePage ? "main-home" : "main"} >
+            <Header homePage={homePage} setHomePage={setHomePage} />
 
-            <h2>Flags</h2>
-            <Flag country="france" image={franceFlag}/>
-            <Flag country="spain" image={spainFlag}/>
-            <Flag country="sweden" image={swedenFlag}/>
-            <Flag country="uk" image={ukFlag}/>
+            {homePage 
+                ? 
+                <div id="home-page-section">
+                    <Title content="Nice to see you again" userName="user name" type="welcome" />
+                    <Button 
+                        content="Start" type="start" 
+                        onClick={() => { setHomePage(false); }} 
+                    />
+                </div>
+                : null
+            }
 
-            <h2>Status</h2>
-            <Status content="..." status="order-info-received" />
-            <Status content="&#889;" status="ready-for-pickup" />
-            <Status content="&#10004;" status="delivered" />
-
-            <h2>Title</h2>
-            <Title content="Nice to see you again" type="welcome" />
-
-            <h2>Input</h2>
-            <Input value="Name" type="checkbox"/>
-
-            <h1>Let's move on molecules now!</h1>
-            <h2>Filter</h2>
-            <Filter title="User Name" content={['A', 'B', 'C']} />
-
-        </div>
+        </main>
     );
 }
 
 export default App;
+
+
+{/*
+<Button content="+" type="more" onClick={() => {console.log('more')}} />
+
+
+<h2>Status</h2>
+<Status content="..." status="order-info-received" />
+<Status content="&#889;" status="ready-for-pickup" />
+<Status content="&#10004;" status="delivered" />
+
+
+
+<h2>Order Line</h2>
+<OrderLine type="full" content={ {id: 23, status: "delivered", eta:"tomorrow", sender: "senders name", userName: "user name", location: "town"} } />
+<OrderLine type="half" content={ {status: "delivered", sender: "senders name", userName: "user name"} } /> */}

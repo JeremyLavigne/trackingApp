@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Filter.css';
 
 // Components
@@ -7,22 +7,29 @@ import Button from '../atoms/Button';
 
 
 const Filter = ({title, content}) => {
+
+    const [ filterOpen, setFilterOpen ] =useState(false);
+
     return (
         <div className="filter-drop-down">
-            <span className="filter-title">
-                {title}
+            <div className="filter-title">
                 <Button 
-                    content="&#x2193;" 
-                    type="open" 
-                    onClick={() => {console.log('open filter-content')}}
+                    content={title} 
+                    type="filter" 
+                    onClick={() => { setFilterOpen(!filterOpen) }}
                 />
-            </span>
+            </div>
 
-            <span className="filter-content">
-                {content.map((item) => 
-                    <Input key={item} type="checkbox" value={item} />)
-                }
-            </span>
+            { filterOpen
+                ?
+                <div className="filter-content">
+                    {content.map((item) => 
+                        <Input key={item} type="checkbox" value={item} />)
+                    }
+                </div>
+                :
+                null
+            }
         </div>
     );
 }

@@ -2,8 +2,10 @@ import React from 'react';
 import './Input.css'
 
 const Input = ({type, value}) => {
-    return (
+    return ( 
         <div>
+            { type === "checkbox" 
+            ?
             <label className="container" htmlFor={value}>{value}
                 <input 
                     className="input" 
@@ -12,6 +14,11 @@ const Input = ({type, value}) => {
                 />
                 <span className="checkmark"></span>
             </label>
+            :
+            <p>
+                <input className="search-input" type={type} placeholder={value} />
+            </p>
+        }
         </div>
     );
 }

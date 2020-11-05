@@ -1,0 +1,26 @@
+.home-header {
+    display: flex;
+}
+
+.header-menu {
+    width: 100%;
+}
+
+.header-search-choice {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 50px;
+}
+
+.app-in-use-header {
+    display: flex;
+    align-items: flex-start;
+    background-color: #3C91DF;
+}
+
+.all-filters {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
