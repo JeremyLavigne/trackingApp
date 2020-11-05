@@ -13,6 +13,10 @@ import spainFlag from '../../images/spain-flag.png';
 import swedenFlag from '../../images/sweden-flag.png';
 import ukFlag from '../../images/uk-flag.png';
 
+
+// ==============================================================================
+// Two different Header regarding user action (Home page or List of orders)
+// ==============================================================================
 const Header = ({homePage, setHomePage}) => {
 
     const [ useFilterOn, setUseFilterOn ] =useState(false);

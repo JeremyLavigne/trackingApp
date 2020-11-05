@@ -35,3 +35,12 @@
     background-color: black;
     padding-top: 2px;
 }
+
+@media (min-width: 700px) {
+    .button {
+        font-size: 110%;
+    }
+    .back {
+        width: 100px;
+    }
+}

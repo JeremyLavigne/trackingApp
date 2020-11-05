@@ -7,3 +7,9 @@
 .welcome {
     color: white;
 }
+
+@media (min-width: 700px) {
+    .welcome {
+        color: black;
+    }
+}

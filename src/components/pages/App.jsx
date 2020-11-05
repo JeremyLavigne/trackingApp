@@ -3,21 +3,19 @@ import './App.css'
 
 // Components
 import Button from '../atoms/Button';
-import Flag from '../atoms/Flag';
-import Status from '../atoms/Status';
 import Title from '../atoms/Title';
-import Input from '../atoms/Input';
-
-import Filter from '../molecules/Filter';
 import OrderLine from '../molecules/OrderLine';
-
 import Header from '../organisms/Header';
 
+import fakeList from '../../fakeDB.json'
 
+
+// ==============================================================================
+// ==================== 'Single page' App, all starts here. =====================
+// ==============================================================================
 const App = () => {
 
     const [ homePage, setHomePage ] = useState(true);
-
 
     return (
         <main className={homePage ? "main-home" : "main"} >
@@ -32,27 +30,15 @@ const App = () => {
                         onClick={() => { setHomePage(false); }} 
                     />
                 </div>
-                : null
+                :
+                fakeList
+                    .sort((a, b) => a.eta > b.eta ? 1 : -1) // Sort by ETA
+                    .map((item) => 
+                        <OrderLine type="full" key={item.id} item={item} />
+                )
             }
-
         </main>
     );
 }
 
 export default App;
-
-
-{/*
-<Button content="+" type="more" onClick={() => {console.log('more')}} />
-
-
-<h2>Status</h2>
-<Status content="..." status="order-info-received" />
-<Status content="&#889;" status="ready-for-pickup" />
-<Status content="&#10004;" status="delivered" />
-
-
-
-<h2>Order Line</h2>
-<OrderLine type="full" content={ {id: 23, status: "delivered", eta:"tomorrow", sender: "senders name", userName: "user name", location: "town"} } />
-<OrderLine type="half" content={ {status: "delivered", sender: "senders name", userName: "user name"} } /> */}
