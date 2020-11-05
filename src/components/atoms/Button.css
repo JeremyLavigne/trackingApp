@@ -5,6 +5,7 @@
     margin: 5px;
     border: 0;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .start {
@@ -28,4 +29,9 @@
 .filter {
     background-color: #3C91DF;
     border: 2px solid #3C59DF;
+}
+
+.open {
+    background-color: black;
+    padding-top: 2px;
 }

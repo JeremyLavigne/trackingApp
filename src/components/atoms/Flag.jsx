@@ -1,9 +1,10 @@
 import React from 'react';
+import './Flag.css'
 
-const Flag = ({country}) => {
+const Flag = ({country, image}) => {
     return (
         <figure className="flag" >
-            <img src={country} alt={country} />
+            <img src={image} alt={country} />
         </figure>
     );
 }
