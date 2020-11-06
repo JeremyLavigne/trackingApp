@@ -32,7 +32,16 @@ body {
 }
 
 @media (min-width: 1300px) {
+    body {
+        font-size: 1.3em;
+    }
     #order-list-section {
         width: 40%;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        font-size: 0.8em;
     }
 }

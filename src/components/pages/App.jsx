@@ -10,6 +10,7 @@ import Header from '../organisms/Header';
 // Utils
 import initialList from '../../fakeDB.json'
 import initFilters from '../../utils/initFilters'
+import filterWithId from '../../utils/filterWithId'
 import applyFilters from '../../utils/applyFilters'
 import checkIfOneFilterIsActive from '../../utils/checkIfOneFilterIsActive'
 
@@ -22,6 +23,8 @@ const App = () => {
     const [ homePage, setHomePage ] = useState(true); // Are we on 'Home page'
     const [ listOfFilter, setListOfFilter ] = useState(initFilters(initialList)); // see utils/initFilters
     const [ atLeastOneFilterIsActive, setAtLeastOneFilterIsActive ] = useState(false);
+    const [ searchedIdIsActive, setSearchedIdIsActive ] = useState(false);
+    const [ searchedId, setSearchedId ] = useState(''); // User want to directly search an id
 
     useEffect(() => {
         if (checkIfOneFilterIsActive(listOfFilter)) {
@@ -37,6 +40,8 @@ const App = () => {
                 initialList={initialList}
                 homePage={homePage} setHomePage={setHomePage}
                 listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
+                searchedId={searchedId} setSearchedId={setSearchedId}
+                setSearchedIdIsActive={setSearchedIdIsActive}
             />
 
             {homePage 
@@ -51,6 +56,7 @@ const App = () => {
                 :
                 <div id="order-list-section">
                     { initialList
+                        .filter((item) => searchedIdIsActive ? filterWithId(item, searchedId): true)
                         .filter((item) => atLeastOneFilterIsActive ? applyFilters(item, listOfFilter) : true)
                         .sort((a, b) => a.eta > b.eta ? -1 : 1) // Sort by ETA
                         .map((item) => 

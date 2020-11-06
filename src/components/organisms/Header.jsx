@@ -20,13 +20,25 @@ import initFilters from '../../utils/initFilters'
 // ==============================================================================
 // Two different Header regarding user action (Home page or List of orders)
 // ==============================================================================
-const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilter}) => {
+const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilter, 
+    searchedId, setSearchedId, setSearchedIdIsActive}) => {
 
     const [ useFilterOn, setUseFilterOn ] = useState(false); // User want to use a filter
 
     const refresh = () => {
         setListOfFilter(initFilters(initialList));
+        setSearchedIdIsActive(false)
+        setSearchedId('')
         setUseFilterOn(false);
+    }
+
+    const handleChangeSearchId = (e) => {
+        setSearchedId(e.target.value)
+        if(e.target.value === '') {
+            setSearchedIdIsActive(false)
+        } else {
+            setSearchedIdIsActive(true)
+        }
     }
     
     return (
@@ -47,20 +59,25 @@ const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilt
                     />
                     <div className="header-menu">
                         <div className="header-search-choice">
+                            <Button 
+                                content="Use Filter" type="filter"
+                                onClick={() => { setUseFilterOn(!useFilterOn) }} 
+                            />
+                            <Button
+                                content="&#8634;" type="refresh"
+                                onClick={refresh} 
+                            />
                             <div>
-                                <Button 
-                                    content="Use Filter" type="filter"
-                                    onClick={() => { setUseFilterOn(!useFilterOn) }} 
-                                />
-                                <Button
-                                    content="&#8634;" type="refresh"
-                                    onClick={refresh} 
+                                <input 
+                                    className="search-input" type="number" placeholder="Search by ID"
+                                    value={searchedId}
+                                    onChange={handleChangeSearchId}
                                 />
                             </div>
-                            <Input 
+                            {/* <Input 
                                 type="text" value="Search by ID" 
                                 listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
-                            />
+                            /> */}
                         </div>
                         { useFilterOn
                             ?

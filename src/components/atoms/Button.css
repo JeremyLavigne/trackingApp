@@ -1,11 +1,13 @@
 .button {
     outline: none;
-    padding: 5px;
     color: white;
     margin: 5px;
     border: 0;
     border-radius: 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .start {
@@ -24,6 +26,7 @@
     background-color: black;
     width: 30px;
     height: 30px;
+    font-size: 1.3em;
 }
 
 .filter {
@@ -38,14 +41,28 @@
 
 .refresh {
     background-color: #3C91DF;
-    font-size: large;
+    font-size: x-large;
 }
 
 @media (min-width: 700px) {
     .button {
-        font-size: 110%;
+        font-size: 0.9em;
     }
     .back {
         width: 100px;
+    }
+    .more {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .back {
+        width: 175px;
+    }
+    .more {
+        width: 50px;
+        height: 50px;
     }
 }

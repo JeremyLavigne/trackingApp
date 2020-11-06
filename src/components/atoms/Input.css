@@ -1,5 +1,5 @@
 .search-input {
-    max-width: 150px;
+    max-width: 100px;
     margin-right: 20px;
     height: 20px;
 }
@@ -7,6 +7,7 @@
 @media (min-width: 700px) {
     .search-input {
         font-size: large;
+        max-width: 150px;
     }
 }
 

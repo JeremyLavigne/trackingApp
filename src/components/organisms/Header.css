@@ -12,7 +12,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-left: 50px;
+}
+
+.useFilter {
+    display: flex;
+    justify-content: center;
 }
 
 .app-in-use-header {
