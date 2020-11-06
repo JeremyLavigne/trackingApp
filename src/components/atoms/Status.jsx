@@ -1,6 +1,9 @@
 import React from 'react';
 import './Status.css'
 
+// ==============================================================================
+// One Status box : Different shape and color for each status.
+// ==============================================================================
 const Status = ({status}) => {
     return (
         <div className={`status ${status}`} >

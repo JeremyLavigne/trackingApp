@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Input.css'
 
+// ==============================================================================
+// One Checkbox, with label. Checkbox control/ are controlled by 'listOfFilters'
+// ==============================================================================
 const Input = ({type, value, listOfFilter, setListOfFilter}) => {
 
     // Keep track of users filters
@@ -20,8 +23,6 @@ const Input = ({type, value, listOfFilter, setListOfFilter}) => {
 
     return ( 
         <div>
-            { type === "checkbox" 
-            ?
             <label className="container" htmlFor={value}>{value}
                 <input 
                     className="input" 
@@ -32,11 +33,6 @@ const Input = ({type, value, listOfFilter, setListOfFilter}) => {
                 />
                 <span className="checkmark"></span>
             </label>
-            :
-            <p>
-                <input className="search-input" type={type} placeholder={value} />
-            </p>
-        }
         </div>
     );
 }

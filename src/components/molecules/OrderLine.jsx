@@ -6,7 +6,10 @@ import Status from '../atoms/Status'
 import Button from '../atoms/Button'
 
 
-const Filter = ({item}) => {
+// ==============================================================================
+// One line of result - contain part of order informations and a 'more' button
+// ==============================================================================
+const OrderLine = ({item}) => {
     return (
         <div className="order-line">
             <Status status={item.status} />
@@ -18,4 +21,4 @@ const Filter = ({item}) => {
     );
 }
 
-export default Filter;
+export default OrderLine;

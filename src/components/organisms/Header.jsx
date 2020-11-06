@@ -4,7 +4,6 @@ import './Header.css';
 // Components
 import Flag from '../atoms/Flag'
 import Button from '../atoms/Button';
-import Input from '../atoms/Input'
 import Filter from '../molecules/Filter'
 
 // Images
@@ -15,13 +14,15 @@ import ukFlag from '../../images/uk-flag.png';
 
 // Utils
 import initFilters from '../../utils/initFilters'
+import languages from '../../languages.json'
 
 
 // ==============================================================================
 // Two different Header regarding user action (Home page or List of orders)
+// Most part of the logic starts here.
 // ==============================================================================
-const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilter, 
-    searchedId, setSearchedId, setSearchedIdIsActive}) => {
+const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilter, searchedId, 
+    setSearchedId, setSearchedIdIsActive, dictionary, setDictionary}) => {
 
     const [ useFilterOn, setUseFilterOn ] = useState(false); // User want to use a filter
 
@@ -40,27 +41,31 @@ const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilt
             setSearchedIdIsActive(true)
         }
     }
+
+    const pickLanguage = (index) => {
+        setDictionary(languages[index])
+    }
     
     return (
         <>
             { homePage 
                 ?
                 <header className="home-header">
-                    <Flag country="france" image={franceFlag}/>
-                    <Flag country="spain" image={spainFlag}/>
-                    <Flag country="sweden" image={swedenFlag}/>
-                    <Flag country="uk" image={ukFlag}/>
+                    <Flag country="france" image={franceFlag} onClick={() => pickLanguage(1)}/>
+                    <Flag country="spain" image={spainFlag} onClick={() => pickLanguage(3)}/>
+                    <Flag country="sweden" image={swedenFlag} onClick={() => pickLanguage(2)}/>
+                    <Flag country="uk" image={ukFlag} onClick={() => pickLanguage(0)}/>
                 </header>
                 :
                 <header className="app-in-use-header">
                     <Button 
-                        content="<< Back" type="back" 
+                        content={`<< ${dictionary.back}`}  type="back" 
                         onClick={() => { setHomePage(true); }} 
                     />
                     <div className="header-menu">
                         <div className="header-search-choice">
                             <Button 
-                                content="Use Filter" type="filter"
+                                content={dictionary.useFilter} type="filter"
                                 onClick={() => { setUseFilterOn(!useFilterOn) }} 
                             />
                             <Button
@@ -69,31 +74,27 @@ const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilt
                             />
                             <div>
                                 <input 
-                                    className="search-input" type="number" placeholder="Search by ID"
+                                    className="search-input" type="number" placeholder={dictionary.parcelID}
                                     value={searchedId}
                                     onChange={handleChangeSearchId}
                                 />
                             </div>
-                            {/* <Input 
-                                type="text" value="Search by ID" 
-                                listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
-                            /> */}
                         </div>
                         { useFilterOn
                             ?
                             <div className="all-filters">
                                 <Filter 
-                                    title="Status" 
+                                    title={dictionary.status} 
                                     content={[...new Set(initialList.map((item) => item.status))]}
                                     listOfFilter={listOfFilter} setListOfFilter={setListOfFilter} 
                                 />
                                 <Filter 
-                                    title="Sender"
+                                    title={dictionary.sender}
                                     content={[...new Set(initialList.map((item) => item.sender))]} 
                                     listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
                                 />
                                 <Filter 
-                                    title="Location"
+                                    title={dictionary.location}
                                     content={[...new Set(initialList.map((item) => item.location_name))]}
                                     listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
                                 />

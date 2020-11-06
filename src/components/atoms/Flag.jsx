@@ -1,9 +1,12 @@
 import React from 'react';
 import './Flag.css'
 
-const Flag = ({country, image}) => {
+// ==============================================================================
+// One Flag
+// ==============================================================================
+const Flag = ({country, image, onClick}) => {
     return (
-        <figure className="flag" >
+        <figure className="flag" onClick={onClick}>
             <img src={image} alt={country} />
         </figure>
     );

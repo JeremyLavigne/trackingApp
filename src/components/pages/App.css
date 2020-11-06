@@ -20,6 +20,7 @@ body {
 #order-list-section {
     width: 90%;
     margin: auto;
+    text-align: center;
 }
 
 @media (min-width: 700px) {

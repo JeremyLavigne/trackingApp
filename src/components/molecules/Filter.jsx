@@ -6,9 +6,12 @@ import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 
 
+// ==============================================================================
+// One drop down list including a title and a list of checkboxes
+// ==============================================================================
 const Filter = ({title, content, listOfFilter, setListOfFilter}) => {
 
-    const [ filterOpen, setFilterOpen ] = useState(false);
+    const [ filterOpen, setFilterOpen ] = useState(false); // Display or not the list of checkboxes
 
     return (
         <div className="filter-drop-down">
