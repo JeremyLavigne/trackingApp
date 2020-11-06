@@ -9,14 +9,21 @@ import Button from '../atoms/Button'
 // ==============================================================================
 // One line of result - contain part of order informations and a 'more' button
 // ==============================================================================
-const OrderLine = ({item}) => {
+const OrderLine = ({type, item, setItemInModal, setShowModal}) => {
+
+    const handleClickMore = () => {
+        setItemInModal(item);
+        setShowModal(true);
+    }
+
     return (
-        <div className="order-line">
+        <div className={ type === "full" ? "order-line" : "order-line short"}>
             <Status status={item.status} />
             <p>{item.parcel_id}</p>
             <p>{item.sender}, {item.location_name}</p> 
             <p>{item.eta.substr(0, 10)}</p>
-            <Button content="+" type="more" onClick={() => {console.log('more')}} />
+            { type === "full" &&
+            <Button content="+" type="more" onClick={handleClickMore} /> }
         </div>
     );
 }

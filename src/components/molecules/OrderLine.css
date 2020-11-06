@@ -6,3 +6,7 @@
     margin-bottom: 5px;
     box-shadow: grey 2px 2px;
 }
+
+.short {
+    justify-content: space-around;
+}

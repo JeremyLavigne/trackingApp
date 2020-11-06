@@ -19,7 +19,8 @@
         "no": "No",
         "userPhone": "Phone",
         "lastUpdate": "Last Update",
-        "noResult": "No results."
+        "noResult": "No results.",
+        "close": "Close"
     },
     {
         "welcomeMessage": "Content de vous revoir",
@@ -41,7 +42,8 @@
         "no": "Non",
         "userPhone": "Téléphone",
         "lastUpdate": "Mise à jour",
-        "noResult": "Aucun resultats."
+        "noResult": "Aucun resultats.",
+        "close": "Fermer"
     },
     {
         "welcomeMessage": "Trevligt att se dig igen",
@@ -63,7 +65,8 @@
         "no": "Nej",
         "userPhone": "Telefon",
         "lastUpdate": "Senaste uppdateringen",
-        "noResult": "Inga resultat."
+        "noResult": "Inga resultat.",
+        "close": "Stäng"
     },
     {
         "welcomeMessage": "Encantado de verte de nuevo",
@@ -85,6 +88,7 @@
         "no": "No",
         "userPhone": "Teléfono",
         "lastUpdate": "Última actualización",
-        "noResult": "No hay resultados."
+        "noResult": "No hay resultados.",
+        "close": "Cerrar"
     }
 ]

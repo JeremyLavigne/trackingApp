@@ -6,6 +6,7 @@ import Button from '../atoms/Button';
 import Title from '../atoms/Title';
 import OrderLine from '../molecules/OrderLine';
 import Header from '../organisms/Header';
+import OrderDetailModal from '../organisms/OrderDetailModal';
 
 // Utils
 import fakeList from '../../fakeDB.json' // Backup list if API problem
@@ -28,6 +29,8 @@ const App = () => {
     const [ atLeastOneFilterIsActive, setAtLeastOneFilterIsActive ] = useState(false);
     const [ searchedId, setSearchedId ] = useState(''); // User want to directly search an id
     const [ searchedIdIsActive, setSearchedIdIsActive ] = useState(false);
+    const [ showModal, setShowModal ] = useState(false);
+    const [ itemInModal, setItemInModal ] = useState({});
 
     useEffect(() => {
         setInitialList(fakeList); 
@@ -43,7 +46,10 @@ const App = () => {
             .filter((item) => atLeastOneFilterIsActive ? applyFilters(item, listOfFilter) : true)
             .sort((a, b) => a.eta > b.eta ? -1 : 1) // Sort by ETA
             .map((item) => 
-                <OrderLine type="full" key={item.id} item={item} />
+                <OrderLine 
+                    key={item.id} item={item} type="full"
+                    setItemInModal={setItemInModal} setShowModal={setShowModal}
+                />
         );
 
     return (
@@ -73,8 +79,15 @@ const App = () => {
                 :
                 <div id="order-list-section">
                     { listToDisplay.length > 0 ? listToDisplay : dictionary.noResult }
+                    { showModal &&
+                        <OrderDetailModal 
+                            item={itemInModal} setShowModal={setShowModal} 
+                            dictionary={dictionary}
+                        />
+                    }
                 </div>
             }
+
         </main>
     );
 }
