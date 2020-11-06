@@ -13,13 +13,22 @@ import spainFlag from '../../images/spain-flag.png';
 import swedenFlag from '../../images/sweden-flag.png';
 import ukFlag from '../../images/uk-flag.png';
 
+// Utils
+import initFilters from '../../utils/initFilters'
+
 
 // ==============================================================================
 // Two different Header regarding user action (Home page or List of orders)
 // ==============================================================================
-const Header = ({homePage, setHomePage}) => {
+const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilter}) => {
 
-    const [ useFilterOn, setUseFilterOn ] =useState(false);
+    const [ useFilterOn, setUseFilterOn ] = useState(false); // User want to use a filter
+
+    const refresh = () => {
+        setListOfFilter(initFilters(initialList));
+        setUseFilterOn(false);
+    }
+    
     return (
         <>
             { homePage 
@@ -38,18 +47,39 @@ const Header = ({homePage, setHomePage}) => {
                     />
                     <div className="header-menu">
                         <div className="header-search-choice">
-                            <Button 
-                                content="Use Filter" type="filter"
-                                onClick={() => { setUseFilterOn(!useFilterOn) }} 
+                            <div>
+                                <Button 
+                                    content="Use Filter" type="filter"
+                                    onClick={() => { setUseFilterOn(!useFilterOn) }} 
+                                />
+                                <Button
+                                    content="&#8634;" type="refresh"
+                                    onClick={refresh} 
+                                />
+                            </div>
+                            <Input 
+                                type="text" value="Search by ID" 
+                                listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
                             />
-                            <Input type="text" value="Search by ID" />
                         </div>
                         { useFilterOn
                             ?
                             <div className="all-filters">
-                                <Filter title="Status" content={['A', 'B', 'C']} />
-                                <Filter title="Sender" content={['A', 'B', 'C']} />
-                                <Filter title="Location" content={['A', 'B', 'C']} />
+                                <Filter 
+                                    title="Status" 
+                                    content={[...new Set(initialList.map((item) => item.status))]}
+                                    listOfFilter={listOfFilter} setListOfFilter={setListOfFilter} 
+                                />
+                                <Filter 
+                                    title="Sender"
+                                    content={[...new Set(initialList.map((item) => item.sender))]} 
+                                    listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
+                                />
+                                <Filter 
+                                    title="Location"
+                                    content={[...new Set(initialList.map((item) => item.location_name))]}
+                                    listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
+                                />
                             </div>
                             : null
                         }

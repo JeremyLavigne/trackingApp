@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css'
 
 // Components
@@ -7,7 +7,11 @@ import Title from '../atoms/Title';
 import OrderLine from '../molecules/OrderLine';
 import Header from '../organisms/Header';
 
-import fakeList from '../../fakeDB.json'
+// Utils
+import initialList from '../../fakeDB.json'
+import initFilters from '../../utils/initFilters'
+import applyFilters from '../../utils/applyFilters'
+import checkIfOneFilterIsActive from '../../utils/checkIfOneFilterIsActive'
 
 
 // ==============================================================================
@@ -15,11 +19,25 @@ import fakeList from '../../fakeDB.json'
 // ==============================================================================
 const App = () => {
 
-    const [ homePage, setHomePage ] = useState(true);
+    const [ homePage, setHomePage ] = useState(true); // Are we on 'Home page'
+    const [ listOfFilter, setListOfFilter ] = useState(initFilters(initialList)); // see utils/initFilters
+    const [ atLeastOneFilterIsActive, setAtLeastOneFilterIsActive ] = useState(false);
+
+    useEffect(() => {
+        if (checkIfOneFilterIsActive(listOfFilter)) {
+            setAtLeastOneFilterIsActive(true);
+        } else {
+            setAtLeastOneFilterIsActive(false);
+        }
+    }, [listOfFilter]) // Check every time list of filters changes.
 
     return (
         <main className={homePage ? "main-home" : "main"} >
-            <Header homePage={homePage} setHomePage={setHomePage} />
+            <Header 
+                initialList={initialList}
+                homePage={homePage} setHomePage={setHomePage}
+                listOfFilter={listOfFilter} setListOfFilter={setListOfFilter}
+            />
 
             {homePage 
                 ? 
@@ -31,11 +49,15 @@ const App = () => {
                     />
                 </div>
                 :
-                fakeList
-                    .sort((a, b) => a.eta > b.eta ? 1 : -1) // Sort by ETA
-                    .map((item) => 
-                        <OrderLine type="full" key={item.id} item={item} />
-                )
+                <div id="order-list-section">
+                    { initialList
+                        .filter((item) => atLeastOneFilterIsActive ? applyFilters(item, listOfFilter) : true)
+                        .sort((a, b) => a.eta > b.eta ? -1 : 1) // Sort by ETA
+                        .map((item) => 
+                            <OrderLine type="full" key={item.id} item={item} />
+                        )
+                    }
+                </div>
             }
         </main>
     );

@@ -10,7 +10,9 @@ const Filter = ({item}) => {
     return (
         <div className="order-line">
             <Status status={item.status} />
-            {item.sender}, {item.location_name}, {item.eta.substr(0, 10)}
+            <p>{item.sender}</p>
+            <p>{item.location_name}</p> 
+            <p>{item.eta.substr(0, 10)}</p>
             <Button content="+" type="more" onClick={() => {console.log('more')}} />
         </div>
     );

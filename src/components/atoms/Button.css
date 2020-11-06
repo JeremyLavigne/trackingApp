@@ -36,6 +36,11 @@
     padding-top: 2px;
 }
 
+.refresh {
+    background-color: #3C91DF;
+    font-size: large;
+}
+
 @media (min-width: 700px) {
     .button {
         font-size: 110%;

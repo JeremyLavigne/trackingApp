@@ -6,9 +6,9 @@ import Input from '../atoms/Input';
 import Button from '../atoms/Button';
 
 
-const Filter = ({title, content}) => {
+const Filter = ({title, content, listOfFilter, setListOfFilter}) => {
 
-    const [ filterOpen, setFilterOpen ] =useState(false);
+    const [ filterOpen, setFilterOpen ] = useState(false);
 
     return (
         <div className="filter-drop-down">
@@ -24,7 +24,10 @@ const Filter = ({title, content}) => {
                 ?
                 <div className="filter-content">
                     {content.map((item) => 
-                        <Input key={item} type="checkbox" value={item} />)
+                        <Input 
+                            key={item} type="checkbox" value={item}
+                            listOfFilter={listOfFilter} setListOfFilter={setListOfFilter} 
+                        />)
                     }
                 </div>
                 :

@@ -17,8 +17,22 @@ body {
     align-items: center;
 }
 
+#order-list-section {
+    width: 90%;
+    margin: auto;
+}
+
 @media (min-width: 700px) {
     .main-home {
         background-image: url('images/back-desktop.jpg');
+    }
+    #order-list-section {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1300px) {
+    #order-list-section {
+        width: 40%;
     }
 }
