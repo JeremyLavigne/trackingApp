@@ -11,8 +11,9 @@
         "status": "Status",
         "eta": "ETA",
         "etaFull": "Estimated Time of Arrival",
-        "orderReceived": "Order info received",
-        "readyToPick": "Ready to pick up",
+        "order-info-received": "Order info received",
+        "ready-for-pickup": "Ready to pick up",
+        "on-the-way": "On the way",
         "delivered": "Delivered",
         "verification": "Verification Required",
         "yes": "Yes",
@@ -21,7 +22,9 @@
         "lastUpdate": "Last Update",
         "noResult": "No results.",
         "close": "Close",
-        "notes": "Notes"
+        "notes": "Notes",
+        "loading": "Loading",
+        "sorryForError": "Something went wrong with our server, data here is factice."
     },
     {
         "welcomeMessage": "Content de vous revoir",
@@ -35,8 +38,9 @@
         "status": "Statut",
         "eta": "DAE",
         "etaFull": "Date d'arrivée éstimée",
-        "orderReceived": "Info commande recue",
-        "readyToPick": "Prêt à être récupéré",
+        "order-info-received": "Info commande recue",
+        "ready-for-pickup": "Prêt à être récupéré",
+        "on-the-way": "En route",
         "delivered": "Livré",
         "verification": "Verification Requise",
         "yes": "Oui",
@@ -45,7 +49,9 @@
         "lastUpdate": "Mise à jour",
         "noResult": "Aucun resultats.",
         "close": "Fermer",
-        "notes": "Notes"
+        "notes": "Notes",
+        "loading": "Chargement",
+        "sorryForError": "Il y à un probleme avec nos server, ces données sont factices."
     },
     {
         "welcomeMessage": "Trevligt att se dig igen",
@@ -59,8 +65,9 @@
         "status": "Status",
         "eta": "BA",
         "etaFull": "Beräknad ankomsttid",
-        "orderReceived": "Orderinfo mottagen",
-        "readyToPick": "Redo att samla in",
+        "order-info-received": "Orderinfo mottagen",
+        "ready-for-pickup": "Redo att samla in",
+        "on-the-way": "På väg",
         "delivered": "Levereras",
         "verification": "Verifikation krävs",
         "yes": "Ja",
@@ -69,7 +76,9 @@
         "lastUpdate": "Senaste uppdateringen",
         "noResult": "Inga resultat.",
         "close": "Stäng",
-        "notes": "Anteckningar"
+        "notes": "Anteckningar",
+        "loading": "Loading",
+        "sorryForError": "Något gick fel på vår server, data här är faktiskt."
     },
     {
         "welcomeMessage": "Encantado de verte de nuevo",
@@ -83,8 +92,9 @@
         "status": "Estado",
         "eta": "TEL",
         "etaFull": "Tiempo estimado de llegada",
-        "orderReceived": "Información de pedido recibida",
-        "readyToPick": "Listo para recoger",
+        "order-info-received": "Información de pedido recibida",
+        "ready-for-pickup": "Listo para recoger",
+        "on-the-way": "En camino",
         "delivered": "Entregado",
         "verification": "Verificación requerida",
         "yes": "Sí",
@@ -93,6 +103,8 @@
         "lastUpdate": "Última actualización",
         "noResult": "No hay resultados.",
         "close": "Cerrar",
-        "notes": "Notas"
+        "notes": "Notas",
+        "loading": "Cargando",
+        "sorryForError": "Algo salió mal en nuestro servidor, los datos aquí son hechos."
     }
 ]

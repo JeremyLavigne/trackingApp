@@ -6,19 +6,53 @@
     justify-content: center;
     align-items: center;
     color: white;
-    border-radius: 15%;
+    border-radius: 10px;
+}
+.status:hover {
+    border-radius: 10px 0 0 10px;
+}
+
+.tool-tip-status {
+    display: none;
+    align-items: center;
+    height: 40px;
+    font-size: medium;
+    color: white;
+    position: absolute; /* relative to his parent -> OrderLine*/
+    padding-right: 5px;
+    border-radius: 0px 10px 10px 0px;
+    margin-left: 40px;
+    background-color: darkgreen;
+}
+.status:hover + .tool-tip-status {
+    display: flex;
 }
 
 .order-info-received {
     background-color: rgb(233, 131, 15);
     font-size: x-large;
 }
+.order-info-received + .tool-tip-status {
+    background-color: rgb(233, 131, 15);
+}
 
 .ready-for-pickup {
     background-color: rgb(214, 218, 19);
-    color: green;
+}
+.ready-for-pickup + .tool-tip-status {
+    background-color: rgb(214, 218, 19);
 }
 
 .delivered {
     background-color: green;
+}
+.delivered + .tool-tip-status {
+    background-color: green;
+}
+
+.on-the-way {
+    background-color: darkgoldenrod;
+}
+.on-the-way + .tool-tip-status {
+    background-color: darkgoldenrod;
 }

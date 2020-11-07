@@ -23,12 +23,12 @@ const OrderDetailModal = ({item, setShowModal, dictionary}) => {
 
                 <div className="main-data" >
                     <p><span className="subtitle-infos">{dictionary.parcelID}</span> : {item.parcel_id}</p>
-                    <p><span className="subtitle-infos">{dictionary.status}</span> : {item.status}</p>
+                    <p><span className="subtitle-infos">{dictionary.status}</span> : {dictionary[item.status]}</p>
                     <p><span className="subtitle-infos">{dictionary.verification}</span> : {item.verification_required ? dictionary.yes : dictionary.no}</p>
-                    <p><span className="subtitle-infos">{dictionary.etaFull}</span> : {item.eta}</p>
+                    <p><span className="subtitle-infos">{dictionary.etaFull}</span> : {item.eta.substr(0, 10)}, {item.eta.substr(11, 5)}</p>
                     <p><span className="subtitle-infos">{dictionary.userName}</span> : {item.user_name}</p>
                     <p><span className="subtitle-infos">{dictionary.userPhone}</span> : {item.user_phone}</p>
-                    <p><span className="subtitle-infos">{dictionary.lastUpdate}</span> : {item.last_updated}</p>
+                    <p><span className="subtitle-infos">{dictionary.lastUpdate}</span> : {item.last_updated.substr(0, 10)}, {item.last_updated.substr(11, 5)}</p>
                     <p><span className="subtitle-infos">{dictionary.notes}</span> : {item.notes}</p>
                 </div>
 

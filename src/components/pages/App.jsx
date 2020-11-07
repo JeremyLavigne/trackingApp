@@ -22,7 +22,8 @@ import checkIfOneFilterIsActive from '../../utils/checkIfOneFilterIsActive'
 // ==============================================================================
 const App = () => {
 
-    const [ initialList, setInitialList ] = useState(fakeList) // Backup plan
+    const [ status, setStatus ] = useState(0)
+    const [ initialList, setInitialList ] = useState([])
     const [ dictionary, setDictionary ] = useState(languages[0]) // Default : english
     const [ homePage, setHomePage ] = useState(true); // Are we on 'Home page' ?
     const [ listOfFilter, setListOfFilter ] = useState(initFilters(initialList)); // see utils/initFilters
@@ -32,8 +33,21 @@ const App = () => {
     const [ showModal, setShowModal ] = useState(false);
     const [ itemInModal, setItemInModal ] = useState({});
 
-    useEffect(() => {
-        setInitialList(fakeList); 
+    useEffect( () => {
+        const getData = async () => {
+            try {
+                const response = await fetch('https://my.api.mockaroo.com/orders.json?key=e49e6840',{ mode: "cors" });
+                const data = await response.json();
+        
+                setInitialList(data);
+                setStatus(1);
+            } catch {
+                setInitialList(fakeList); // Back up plan in case of issue
+                setStatus(2);
+            }
+        };
+
+        getData();
     }, []) // Initialize list of order calling API, only once.
 
     useEffect(() => {
@@ -47,11 +61,12 @@ const App = () => {
             .sort((a, b) => a.eta > b.eta ? -1 : 1) // Sort by ETA
             .map((item) => 
                 <OrderLine 
-                    key={item.id} item={item} type="full"
+                    key={item.id} item={item} type="full" dictionary={dictionary}
                     setItemInModal={setItemInModal} setShowModal={setShowModal}
                 />
         );
 
+    console.log(initialList)
     return (
         <main className={homePage ? "main-home" : "main"} >
             {/* Most of the variables are used/defined inside 'Header' */}
@@ -64,31 +79,37 @@ const App = () => {
                 setSearchedIdIsActive={setSearchedIdIsActive}
             />
 
-            {homePage 
-                ? 
-                <div id="home-page-section">
-                    <Title 
-                        content={dictionary.welcomeMessage} 
-                        userName={initialList ? initialList[0].user_name.split(' ')[0] : ""} 
-                        type="welcome" />
-                    <Button 
-                        content={dictionary.start} type="start" 
-                        onClick={() => { setHomePage(false); }} 
-                    />
-                </div>
-                :
-                <div id="order-list-section">
-                    { listToDisplay.length > 0 
-                        ? listToDisplay 
-                        : <Title  content={dictionary.noResult}  type="result" />
+            { status === 0
+                ? <Title  content={dictionary.loading}  type="welcome" />
+                : <>
+                    {homePage 
+                        ? 
+                        <div id="home-page-section">
+                            { status === 2 && <p>{dictionary.sorryForError}</p> }
+                            <Title 
+                                content={dictionary.welcomeMessage} 
+                                userName={initialList ? initialList[0].user_name.split(' ')[0] : ""} 
+                                type="welcome" />
+                            <Button 
+                                content={dictionary.start} type="start" 
+                                onClick={() => { setHomePage(false); }} 
+                            />
+                        </div>
+                        :
+                        <div id="order-list-section">
+                            { listToDisplay.length > 0 
+                                ? listToDisplay 
+                                : <Title  content={dictionary.noResult}  type="result" />
+                            }
+                            { showModal &&
+                                <OrderDetailModal 
+                                    item={itemInModal} setShowModal={setShowModal} 
+                                    dictionary={dictionary}
+                                />
+                            }
+                        </div>
                     }
-                    { showModal &&
-                        <OrderDetailModal 
-                            item={itemInModal} setShowModal={setShowModal} 
-                            dictionary={dictionary}
-                        />
-                    }
-                </div>
+                  </>
             }
 
         </main>

@@ -98,13 +98,13 @@
         width: 30px;
         height: 30px;
     }
+    .refresh {
+        font-size: xx-large;
+    }
 }
 
 @media (min-width: 1300px) {
     .back {
         width: 175px;
-    }
-    .refresh {
-        font-size: xx-large;
     }
 }
