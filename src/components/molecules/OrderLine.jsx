@@ -18,7 +18,8 @@ const OrderLine = ({type, item, setItemInModal, setShowModal, dictionary}) => {
 
     return (
         <div className={ type === "full" ? "order-line" : "order-line short"}>
-            <Status dictionary={dictionary} status={item.status} />
+            { type === "full" &&
+            <Status dictionary={dictionary} status={item.status} /> }
             <p>{item.parcel_id}</p>
             <p>{item.sender}, {item.location_name}</p> 
             <p>{item.eta.substr(0, 10)}</p>

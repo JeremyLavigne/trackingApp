@@ -12,29 +12,25 @@ Personnal project part of the Frontend Module in SDA8, Novare Potential.
 *The app MUST be done using ReactJS and support major mobile & desktop
 browsers/layouts.*
 
-### Personnal interpretation
-In order to make sense regarding the data used to build the app, when you open the app, **you are a third-party freelance**, responsible for several clients orders.
-     
-Those customers made you responsible of the ordering/delivering process and you are using this application to track all orders in one single place.
-
-
 ### Installation
 
- - git clone ...
- - cd ...
- - npm install (only for snowpack)
- - npm start
+```
+git clone https://github.com/JeremyLavigne/trackingApp.git
+cd trackingApp
+npm install
+npm start
+```
 
-Possibility to see the app online here : ...
+Possibility to see the app online here : *comming soon*
 
 ### Starting with the app
 
- - Choose your language, and click the main button to see orders.
+ - Choose your language, and click the main button to see your orders.
 
  - Use filters to access quickly to the expected order :
     - Status
     - Sender
     - Location
-    - User
+    - Parcel ID
 
-- Click on one order to see all details.
+- Click on `+` in order line to see all details.

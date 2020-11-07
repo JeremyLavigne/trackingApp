@@ -19,7 +19,7 @@ const OrderDetailModal = ({item, setShowModal, dictionary}) => {
         <div>
             <div className="modal" onClick={() => {setShowModal(false);}}></div>
             <section className="modal-main">
-                <OrderLine  className="short-line" key={item.id} item={item} type="half" />
+                <OrderLine className="short-line" key={item.id} item={item} type="half" />
 
                 <div className="main-data" >
                     <p><span className="subtitle-infos">{dictionary.parcelID}</span> : {item.parcel_id}</p>
