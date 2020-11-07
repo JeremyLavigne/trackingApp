@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './App.css'
 
 // Components
-import Button from '../atoms/Button';
-import Title from '../atoms/Title';
-import OrderLine from '../molecules/OrderLine';
-import Header from '../organisms/Header';
-import OrderDetailModal from '../organisms/OrderDetailModal';
+import Button from '../atoms/button/Button';
+import Title from '../atoms/title/Title';
+import OrderLine from '../molecules/orderLine/OrderLine';
+import Header from '../organisms/header/Header';
+import OrderDetailModal from '../organisms/orderDetailModal/OrderDetailModal';
 
 // Utils
 import fakeList from '../../fakeDB.json' // Backup list if API problem
@@ -66,7 +66,6 @@ const App = () => {
                 />
         );
 
-    console.log(initialList)
     return (
         <main className={homePage ? "main-home" : "main"} >
             {/* Most of the variables are used/defined inside 'Header' */}

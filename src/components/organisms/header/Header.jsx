@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import './Header.css';
 
 // Components
-import Flag from '../atoms/Flag'
-import Button from '../atoms/Button';
-import Filter from '../molecules/Filter'
+import Flag from '../../atoms/flag/Flag'
+import Button from '../../atoms/button/Button';
+import Filter from '../../molecules/filter/Filter'
 
 // Images
-import franceFlag from '../../images/france-flag.png';
-import spainFlag from '../../images/spain-flag.png';
-import swedenFlag from '../../images/sweden-flag.png';
-import ukFlag from '../../images/uk-flag.png';
+import franceFlag from '../../../images/france-flag.png';
+import spainFlag from '../../../images/spain-flag.png';
+import swedenFlag from '../../../images/sweden-flag.png';
+import ukFlag from '../../../images/uk-flag.png';
 
 // Utils
-import initFilters from '../../utils/initFilters'
-import languages from '../../languages.json'
+import initFilters from '../../../utils/initFilters'
+import languages from '../../../languages.json'
 
 
 // ==============================================================================

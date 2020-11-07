@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './OrderDetailModal.css';
 
 // Components
-import Button from '../atoms/Button';
-import OrderLine from '../molecules/OrderLine';
+import Button from '../../atoms/button/Button';
+import OrderLine from '../../molecules/orderLine/OrderLine';
 
 
 // ==============================================================================

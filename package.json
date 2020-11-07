@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "snowpack build",
+    "test": "web-test-runner \"**/*.test.jsx\" --node-resolve"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,10 @@
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.0.4",
     "@snowpack/plugin-react-refresh": "^2.3.5",
+    "@snowpack/web-test-runner-plugin": "0.1.4",
+    "@testing-library/react": "11.1.1",
+    "@web/test-runner": "0.9.7",
+    "chai": "4.2.0",
     "snowpack": "2.16.1"
   }
 }

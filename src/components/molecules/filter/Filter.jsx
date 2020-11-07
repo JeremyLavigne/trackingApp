@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './Filter.css';
 
 // Components
-import Input from '../atoms/Input';
-import Button from '../atoms/Button';
+import Input from '../../atoms/input/Input';
+import Button from '../../atoms/button/Button';
 
 
 // ==============================================================================

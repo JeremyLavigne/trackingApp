@@ -2,8 +2,8 @@ import React from 'react';
 import './OrderLine.css';
 
 // Components
-import Status from '../atoms/Status'
-import Button from '../atoms/Button'
+import Status from '../../atoms/status/Status'
+import Button from '../../atoms/button/Button'
 
 
 // ==============================================================================

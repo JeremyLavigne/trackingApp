@@ -21,7 +21,7 @@ npm install
 npm start
 ```
 
-Possibility to see the app online here : *comming soon*
+You can also directly visit the website : https://tracking-app-sda8.web.app
 
 ### Starting with the app
 
@@ -34,3 +34,7 @@ Possibility to see the app online here : *comming soon*
     - Parcel ID
 
 - Click on `+` in order line to see all details.
+
+### Others
+
+Feel free to try `npm run test` :) 
