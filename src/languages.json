@@ -20,7 +20,8 @@
         "userPhone": "Phone",
         "lastUpdate": "Last Update",
         "noResult": "No results.",
-        "close": "Close"
+        "close": "Close",
+        "notes": "Notes"
     },
     {
         "welcomeMessage": "Content de vous revoir",
@@ -43,7 +44,8 @@
         "userPhone": "Téléphone",
         "lastUpdate": "Mise à jour",
         "noResult": "Aucun resultats.",
-        "close": "Fermer"
+        "close": "Fermer",
+        "notes": "Notes"
     },
     {
         "welcomeMessage": "Trevligt att se dig igen",
@@ -66,7 +68,8 @@
         "userPhone": "Telefon",
         "lastUpdate": "Senaste uppdateringen",
         "noResult": "Inga resultat.",
-        "close": "Stäng"
+        "close": "Stäng",
+        "notes": "Anteckningar"
     },
     {
         "welcomeMessage": "Encantado de verte de nuevo",
@@ -89,6 +92,7 @@
         "userPhone": "Teléfono",
         "lastUpdate": "Última actualización",
         "noResult": "No hay resultados.",
-        "close": "Cerrar"
+        "close": "Cerrar",
+        "notes": "Notas"
     }
 ]

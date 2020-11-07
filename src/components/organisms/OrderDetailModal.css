@@ -9,9 +9,11 @@
   
 .modal-main {
     position:fixed;
-    background: white;
+    background: rgba(241, 238, 238);
     width: 80%;
     height: auto;
+    overflow: scroll;
+    max-height: 80%;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
@@ -20,10 +22,13 @@
 .frame {
     width: 300px;
     height: 170px; 
+    border: 1px solid black;
+    box-shadow: grey 2px 2px;
 }
 
 .main-data {
     margin-left: 10px;
+    text-align: start;
 }
 
 .main-data2 {
@@ -37,11 +42,9 @@
     justify-content: center;
 }
 
-.notes {
-    text-align: center;
-    height: 170px;
-    padding: 5px;
-    margin-top: 10px;
+.subtitle-infos {
+    font-style: italic;
+    text-decoration: underline;
 }
 
 @media (min-width: 700px) {

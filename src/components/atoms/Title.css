@@ -1,15 +1,28 @@
 .title {
-    font-size: xx-large;
-    font-weight: 400;
+    font-size: x-large;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
-}
-
-.welcome {
     color: white;
 }
 
+.result {
+    font-weight: 500;
+}
+
+.welcome {
+    font-weight: 600;
+}
+
 @media (min-width: 700px) {
-    .welcome {
+    .title {
         color: black;
+        font-size: xx-large;
+        background-color: white;
+        opacity: 0.75;
+    }
+    .result {
+        font-size: large;
     }
 }

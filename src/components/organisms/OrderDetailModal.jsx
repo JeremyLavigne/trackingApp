@@ -22,13 +22,14 @@ const OrderDetailModal = ({item, setShowModal, dictionary}) => {
                 <OrderLine  className="short-line" key={item.id} item={item} type="half" />
 
                 <div className="main-data" >
-                    <p>{dictionary.parcelID} : {item.parcel_id}</p>
-                    <p>{dictionary.status} : {item.status}</p>
-                    <p>{dictionary.verification} : {item.verification_required ? dictionary.yes : dictionary.no}</p>
-                    <p>{dictionary.etaFull} : {item.eta}</p>
-                    <p>{dictionary.userName} : {item.user_name}</p>
-                    <p>{dictionary.userPhone} : {item.user_phone}</p>
-                    <p>{dictionary.lastUpdate} : {item.last_updated}</p>
+                    <p><span className="subtitle-infos">{dictionary.parcelID}</span> : {item.parcel_id}</p>
+                    <p><span className="subtitle-infos">{dictionary.status}</span> : {item.status}</p>
+                    <p><span className="subtitle-infos">{dictionary.verification}</span> : {item.verification_required ? dictionary.yes : dictionary.no}</p>
+                    <p><span className="subtitle-infos">{dictionary.etaFull}</span> : {item.eta}</p>
+                    <p><span className="subtitle-infos">{dictionary.userName}</span> : {item.user_name}</p>
+                    <p><span className="subtitle-infos">{dictionary.userPhone}</span> : {item.user_phone}</p>
+                    <p><span className="subtitle-infos">{dictionary.lastUpdate}</span> : {item.last_updated}</p>
+                    <p><span className="subtitle-infos">{dictionary.notes}</span> : {item.notes}</p>
                 </div>
 
                 <div className="main-data2">
@@ -39,9 +40,9 @@ const OrderDetailModal = ({item, setShowModal, dictionary}) => {
                             <Button content="+" type="zoom" onClick={() => setZoom(zoom + 1)} />
                         </div>
                     </div>
-                    <div className="notes">
+                    {/* <div className="notes">
                         {item.notes}
-                    </div>
+                    </div> */}
                 </div>
                 <Button 
                     content={dictionary.close} type="back" 

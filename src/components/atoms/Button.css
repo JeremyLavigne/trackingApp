@@ -9,29 +9,57 @@
     justify-content: center;
     align-items: center;
 }
+.button:active {
+	position:relative;
+	top:1px;
+}
 
 .start {
-    background-color: #3C91DF;
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
     font-size: x-large;
+    border:1px solid #057fd0;
     padding: 10px 20px;
-    border-radius: 25%;
+    border-radius: 10px;
+}
+.start:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
 }
 
 .back {
-    background-color: red;
+    background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    box-shadow: 0px 1px 0px 0px #092b3a;
     border: 1px double black;
+}
+.back:hover {
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color:#bc3315;
 }
 
 .more {
+    display: inline-block;
     background-color: black;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     font-size: 1.3em;
+}
+.more:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }
 
 .filter {
-    background-color: #3C91DF;
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	background-color:#33bdef;
     border: 2px solid #3C59DF;
+    padding: 5px 15px 5px 15px;
+}
+.filter:hover {
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	background-color:#019ad2;
 }
 
 .open {
@@ -43,11 +71,20 @@
     background-color: #3C91DF;
     font-size: x-large;
 }
+.refresh:hover {
+    color: #3C91DF;
+    background-color: white;
+}
 
 .zoom {
     background-color: darkblue;
     width: 20px;
     height: 20px;
+}
+.zoom:hover {
+    background-color: white;
+    color: darkblue;
+    border: 1px solid darkblue;
 }
 
 @media (min-width: 700px) {
@@ -57,9 +94,9 @@
     .back {
         width: 100px;
     }
-    .more {
-        width: 40px;
-        height: 40px;
+    .more, .zoom {
+        width: 30px;
+        height: 30px;
     }
 }
 
@@ -67,8 +104,7 @@
     .back {
         width: 175px;
     }
-    .more {
-        width: 50px;
-        height: 50px;
+    .refresh {
+        font-size: xx-large;
     }
 }

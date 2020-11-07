@@ -3,8 +3,9 @@
     align-items: center;
     justify-content: space-between;
     border: 1px double black;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     box-shadow: grey 2px 2px;
+    background-color: white;
 }
 
 .short {

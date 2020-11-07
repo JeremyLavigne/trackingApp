@@ -69,7 +69,7 @@ const App = () => {
                 <div id="home-page-section">
                     <Title 
                         content={dictionary.welcomeMessage} 
-                        userName={initialList ? initialList[0].user_name : ""} 
+                        userName={initialList ? initialList[0].user_name.split(' ')[0] : ""} 
                         type="welcome" />
                     <Button 
                         content={dictionary.start} type="start" 
@@ -78,7 +78,10 @@ const App = () => {
                 </div>
                 :
                 <div id="order-list-section">
-                    { listToDisplay.length > 0 ? listToDisplay : dictionary.noResult }
+                    { listToDisplay.length > 0 
+                        ? listToDisplay 
+                        : <Title  content={dictionary.noResult}  type="result" />
+                    }
                     { showModal &&
                         <OrderDetailModal 
                             item={itemInModal} setShowModal={setShowModal} 
