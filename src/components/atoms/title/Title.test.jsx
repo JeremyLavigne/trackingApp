@@ -1,5 +1,20 @@
+import React from 'react';
+import Title from './Title.jsx';
+import { render } from '@testing-library/react'
 import { expect } from 'chai';
 
-it('try if test runs for component', () => {
-    expect(2).to.equal(2);
+describe('<Title>', () => {
+
+    it('renders the expecting content', () => {
+      const { container, getByText } = render(<Title content="Hello, testing world!" />);
+      const testElement = getByText('Hello, testing world!');
+      expect(container.contains(testElement));
+    });
+
+    it('has the expecting style', () => {
+        const { container } = render(<Title content="Hello, testing world!" type="welcome" />);
+        const title = container.querySelector('h2');
+        expect(title.className).to.equal("title welcome");
+    });
 });
+
