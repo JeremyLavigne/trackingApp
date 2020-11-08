@@ -11,7 +11,6 @@ import OrderDetailModal from '../organisms/orderDetailModal/OrderDetailModal';
 // Utils
 import fakeList from '../../fakeDB.json' // Backup list if API problem
 import languages from '../../languages.json' // All needed words in selected language
-import initFilters from '../../utils/initFilters'
 import filterWithId from '../../utils/filterWithId'
 import applyFilters from '../../utils/applyFilters'
 import checkIfOneFilterIsActive from '../../utils/checkIfOneFilterIsActive'
@@ -26,7 +25,7 @@ const App = () => {
     const [ initialList, setInitialList ] = useState([])
     const [ dictionary, setDictionary ] = useState(languages[0]) // Default : english
     const [ homePage, setHomePage ] = useState(true); // Are we on 'Home page' ?
-    const [ listOfFilter, setListOfFilter ] = useState(initFilters(initialList)); // see utils/initFilters
+    const [ listOfFilter, setListOfFilter ] = useState({}); 
     const [ atLeastOneFilterIsActive, setAtLeastOneFilterIsActive ] = useState(false);
     const [ searchedId, setSearchedId ] = useState(''); // User want to directly search an id
     const [ searchedIdIsActive, setSearchedIdIsActive ] = useState(false);

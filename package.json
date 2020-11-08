@@ -6,7 +6,7 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "test": "web-test-runner \"**/*.test.jsx\" --node-resolve"
+    "test": "web-test-runner \"src/**/*.test.jsx\" --node-resolve"
   },
   "repository": {
     "type": "git",

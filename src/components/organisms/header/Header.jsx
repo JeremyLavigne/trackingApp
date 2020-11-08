@@ -13,7 +13,6 @@ import swedenFlag from '../../../images/sweden-flag.png';
 import ukFlag from '../../../images/uk-flag.png';
 
 // Utils
-import initFilters from '../../../utils/initFilters'
 import languages from '../../../languages.json'
 
 
@@ -27,7 +26,7 @@ const Header = ({homePage, setHomePage, initialList, listOfFilter, setListOfFilt
     const [ useFilterOn, setUseFilterOn ] = useState(false); // User want to use a filter
 
     const refresh = () => {
-        setListOfFilter(initFilters(initialList));
+        setListOfFilter({});
         setSearchedIdIsActive(false)
         setSearchedId('')
         setUseFilterOn(false);
