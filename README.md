@@ -25,16 +25,21 @@ You can also directly visit the website : https://tracking-app-sda8.web.app
 
 ### Starting with the app
 
- - Choose your language, and click the main button to see your orders.
+ - Choose your **language**, and click the start button to see your orders.
 
- - Use filters to access quickly to the expected order :
-    - Status
-    - Sender
-    - Location
-    - Parcel ID
+ - Use **filters** to access quickly to the expected order :
+    - Status,
+    - Sender,
+    - Location,
+    - Parcel ID.
+ 
+ - All filters can be combined.
 
-- Click on `+` in order line to see all details.
+ - Click on `+` in order line to see more details.
 
-### Others
+### Others informations
 
-Feel free to try `npm run test` :) 
+ - Use of a Snowpack (React template),
+ - Unit testing, Feel free to try `npm run test`,
+ - Deployed with Firebase.
+ 
